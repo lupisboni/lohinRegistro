@@ -22,6 +22,10 @@ function login(e){
         let objeto = JSON.parse(localStorage.getItem('usuario'))
         if(usuarioVal == objeto.user && passwordVal == objeto.pass){
             creaMensaje('Usuario correcto','success');
+            localStorage.setItem('sesion','activa');
+            setTimeouts(function(){
+                window.open('./inicio.html','_self');
+            },2000);
         }else{
             creaMensaje('usuario incorrecto','danger');
         }
@@ -31,3 +35,4 @@ function login(e){
 
     }
     
+
